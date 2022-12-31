@@ -124,6 +124,7 @@ function InfoNumber() {
       try {
         const response = await apiAxios.get('/modem/metamodemsdtos');
         setDadosCompra(Object.values(response.data));
+        setDadosCompra(Object.values(response.data));
         setLoading(false);
 
       } catch(e: any) {

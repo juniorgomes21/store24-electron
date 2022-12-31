@@ -1,5 +1,4 @@
 import Button from "@mui/material/Button";
-import Index from "../Index";
 
 const commands = [
     {

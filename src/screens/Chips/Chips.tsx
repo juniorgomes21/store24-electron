@@ -908,7 +908,8 @@ function Chips() {
     const [msg, setMsg] = useState<Map<string, []>>(new Map());
 
     useEffect(() => {
-        setInterval(apiMetaModem, 1000);
+        apiMetaModem();
+        // setInterval(apiMetaModem, 1000);
     }, [])
 
     async function apiMetaModem() {

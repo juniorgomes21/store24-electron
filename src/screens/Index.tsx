@@ -110,12 +110,16 @@ function Index() {
   const handleDrawerClose = () => { setOpen(false); };
 
   function routeAuxNavigate(url: string) {
+    console.log("window.location.href index", url);
 
     const urlOk: boolean = window.location.href.includes(url.toLocaleLowerCase());
 
     if(!urlOk) {
       navigate(url);
+      console.log("window.location.href index", window.location.href);
+
     }
+    console.log("window.location.href index", window.location.href);
 
   }
 
