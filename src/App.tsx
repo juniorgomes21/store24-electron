@@ -1,15 +1,15 @@
 import { AuthProvider } from './context/auth';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import Index from './screens/Index';
 
 const App: React.FC = () => {
 
     return (
-      <BrowserRouter>
+      <HashRouter>
         <AuthProvider>
           <Index/>
         </AuthProvider>
-      </BrowserRouter>
+      </HashRouter>
     )
 }
 

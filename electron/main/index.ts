@@ -54,6 +54,7 @@ async function createWindow() {
     // win.webContents.openDevTools()
   } else {
     win.loadFile(indexHtml)
+    // win.loadURL('file://' + join(__dirname, '../index.html#/chips'))
   }
 
   // Test actively push message to the Electron-Renderer
@@ -106,5 +107,7 @@ ipcMain.handle('open-win', (event, arg) => {
     childWindow.loadURL(`${url}#${arg}`)
   } else {
     childWindow.loadFile(indexHtml, { hash: arg })
+    // win.loadURL('file://' + join(__dirname, '../index.html#/chips'))
+
   }
 })

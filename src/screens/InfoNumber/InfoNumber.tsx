@@ -117,7 +117,7 @@ function InfoNumber() {
     const [dadosCompra, setDadosCompra] = useState<Modem[]>([]);
 
     useEffect(() => {
-      setInterval(apiMetaModemSdtos, 1000);
+      apiMetaModemSdtos;
     }, [])
 
     async function apiMetaModemSdtos() {

@@ -909,6 +909,8 @@ function Chips() {
 
     useEffect(() => {
         apiMetaModem();
+        console.log(window.location.href);
+
         // setInterval(apiMetaModem, 1000);
     }, [])
 

@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate, useLocation, HashRouter } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
@@ -188,14 +188,14 @@ function Index() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <div className='flex items-center flex-col h-full w-full'>
-          <Routes>
-            <Route index element={<Chips/>} />
-            <Route path="/chips" element={<Chips />} />
-            <Route path="/modems" element={<InfoNumber/>} />
-            <Route path="/commands" element={<Commands />} />
-            <Route path="/others" element={<Others />} />
-            <Route path="*" element={<Notfound/>} />
-          </Routes>
+            <Routes>
+              <Route index element={<Chips/>} />
+              <Route path="/chips" element={<Chips />} />
+              <Route path="/modems" element={<InfoNumber/>} />
+              <Route path="/commands" element={<Commands />} />
+              <Route path="/others" element={<Others />} />
+              <Route path="*" element={<Chips/>} />
+            </Routes>
         </div>
       </Box>
     </Box>
