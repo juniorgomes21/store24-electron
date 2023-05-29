@@ -916,8 +916,8 @@ function Chips() {
 
     async function apiMetaModem() {
         try {
-            const response = await apiAxios.get('/modem/metamodemsdtos');
-            setObj(Object.values(response.data));
+            const response = await apiAxios.get('/h2db/get/modems');
+            setObj(response.data);
             const responseMsg = await apiAxios.get('/sms/massagesdtos');
             setMsg(responseMsg.data);
             setLoading(false);
@@ -928,9 +928,16 @@ function Chips() {
         }
     }
 
-    function handleClickOpen(port: string) {
-        setPort(port);
-        setMsgChip(Object.entries(msg).filter(([key]) => key.includes(port))[0][1]);
+    async function handleClickOpen(chipNumber: string) {
+        try {
+		  setPort(chipNumber);
+          const response = await apiAxios.get(`/h2db/sms/${chipNumber}`);
+          setMsgChip(response.data);
+
+        } catch(e: any) {
+          console.log(e);
+
+        }
     };
 
     function auxMsgVoid(port: string) {
@@ -996,10 +1003,12 @@ function Chips() {
             </div>
             <div className="flex justify-center flex-wrap w-full">
                 { obj.map((item, index) => (
-                    <div className={`flex flex-row w-56 h-16 shadow-lg ${port === item.portName ? `bg-green-200 shadow-green-300` : `bg-gray-300 shadow-slate-400`} ml-6 m-4 rounded-md`} key={index} onClick={() => handleClickOpen(item.portName)}>
+                    <div className={`flex flex-row w-56 h-16 shadow-lg ${port === item.chip.number ? `bg-green-200 shadow-green-300` : `bg-gray-300 shadow-slate-400`} ml-6 m-4 rounded-md`}
+                        key={index}
+                        onClick={() => handleClickOpen(item.chip.number)}
+                    >
                         <div className="flex justify-start items-center">
-                            <img className="w-10 h-10 ml-2" src={auxOperadoraPng(item.chip.operadora)} alt="operadora" />
-                        </div>
+                            <img className="w-10 h-10 ml-2" src={auxOperadoraPng(item.chip.operadora)} alt="operadora" />                       </div>
                         <div className="flex flex-col">
                             <div className="flex justify-end w-full">
                                 <p className={`text-[10px] ${auxMsgVoid(item.portName)}`}>{item.portName}</p>
