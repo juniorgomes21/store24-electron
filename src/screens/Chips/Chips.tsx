@@ -911,7 +911,7 @@ function Chips() {
         apiMetaModem();
         console.log(window.location.href);
 
-        // setInterval(apiMetaModem, 1000);
+        // setInterval(apiMetaModem 1000);
     }, [])
 
     async function apiMetaModem() {
