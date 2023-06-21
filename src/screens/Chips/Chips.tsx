@@ -916,7 +916,7 @@ function Chips() {
 
     async function apiMetaModem() {
         try {
-            const response = await apiAxios.get('/h2db/get/modems');
+            const response = await apiAxios.get('/modem/get/modems');
             setObj(response.data);
             const responseMsg = await apiAxios.get('/sms/massagesdtos');
             setMsg(responseMsg.data);
@@ -931,7 +931,7 @@ function Chips() {
     async function handleClickOpen(chipNumber: string) {
         try {
 		  setPort(chipNumber);
-          const response = await apiAxios.get(`/h2db/sms/${chipNumber}`);
+          const response = await apiAxios.get(`/modem/sms/${chipNumber}`);
           setMsgChip(response.data);
 
         } catch(e: any) {

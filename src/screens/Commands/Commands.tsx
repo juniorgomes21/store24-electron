@@ -3,10 +3,6 @@ import Button from "@mui/material/Button";
 
 const commands = [
     {
-        "name" : "USSD",
-        "url" : "/control/ussd"
-    },
-    {
         "name" : "Apagar todas as mensagens",
         "url" : "/control/deleteall"
     }
